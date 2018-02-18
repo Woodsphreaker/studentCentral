@@ -1,5 +1,5 @@
-import {getData} from '../../Helpers/modules/async'
-import playerInfo from '../../Helpers/modules/playerInfo'
+import {getData} from '../helpers/async'
+import playerInfo from '../helpers/playerInfo'
 import handlebars from 'handlebars'
 import dummyData from './scDataSources'
 

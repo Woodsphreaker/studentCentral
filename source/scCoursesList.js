@@ -1,6 +1,6 @@
-import {getData} from '../../Helpers/modules/async'
-import random from '../../Helpers/modules/randomNumber'
-import {setState} from '../../Helpers/modules/stateRoute'
+import {getData} from '../helpers/async'
+import random from '../helpers/randomNumber'
+import {setState} from '../helpers/stateRoute'
 import handlebars from 'handlebars'
 import dummyData from './scDataSources'
 

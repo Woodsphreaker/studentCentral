@@ -1,4 +1,4 @@
-import {replaceState, getState, getStateOptions} from '../../Helpers/modules/stateRoute'
+import {replaceState, getState, getStateOptions} from '../helpers/stateRoute'
 
 export default (routesConfig, listModules, modulesMethods, {el}) => {
   const init = () => {

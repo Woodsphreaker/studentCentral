@@ -1,5 +1,5 @@
-import {getData} from '../../Helpers/modules/async'
-import random from '../../Helpers/modules/randomNumber'
+import {getData} from '../helpers/async'
+import random from '../helpers/randomNumber'
 import handlebars from 'handlebars'
 
 export default (sysParam) => {

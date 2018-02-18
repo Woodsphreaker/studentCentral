@@ -1,4 +1,4 @@
-import {getData} from '../../Helpers/modules/async'
+import {getData} from '../helpers/async'
 import handlebars from 'handlebars'
 
 export default (sysParam) => {

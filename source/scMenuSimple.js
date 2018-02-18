@@ -1,5 +1,5 @@
-import {getData} from '../../Helpers/modules/async'
-import {getState, setState} from '../../Helpers/modules/stateRoute'
+import {getData} from '../helpers/async'
+import {getState, setState} from '../helpers/stateRoute'
 
 export default (sysParam) => {
   const init = (data) => {
