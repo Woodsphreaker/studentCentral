@@ -42,7 +42,7 @@ gulp.task('SC', () => {
     .pipe(source('studentCentral.js'))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest('../modules/public/js/'))
+    .pipe(gulp.dest('./public/js/'))
 })
 
 gulp.task('STUDENT_CENTRAL', () => {
