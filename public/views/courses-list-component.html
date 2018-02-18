@@ -1,0 +1,39 @@
+﻿<div class="profile">
+    <div class="profile-body">
+        <div class="container">
+            <div data-target="render">
+                
+                <script id="item-template" type="text/template">
+                    {{#each courses}}
+                    <div class="col-sm-6 sm-margin-bottom-20 col-md-4 md-margin-bottom-20">
+                        <div class="profile-blog">
+                            <img class="rounded-x" src="{{image}}" alt="">
+                            <div class="name-location">
+                                <strong>{{title}}</strong>
+                            </div>
+                            <div class="clearfix margin-bottom-20"></div>
+                            <p>{{description}}</p>
+                            <hr>
+                            <h3 class="heading-xs">{{status}} - {{percent}}%</h3>
+                            <div class="progress progress-u progress-sm rounded-2x">
+                                <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="{{percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percent}}%">
+                                    <span class="sr-only">{{percent}}% Complete</span>
+                                </div>
+                            </div>
+                            <button class="btn-u btn-u btn-u-default btn-block rounded" data-type="courseInfo" data-id="{{courseID}}">
+                                <i class="fa fa-info-circle" style="margin-right: 5px;"></i>
+                                Informações do curso
+                            </button>
+                            <button class="btn-u btn-block rounded CursoPreview btn-u-dark-blue">
+                                <i class="fa fa-check-circle" style="margin-right:5px;"></i>
+                                Iniciar Curso
+                            </button>
+                        </div>
+                    </div>
+                    {{/each}}
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div>

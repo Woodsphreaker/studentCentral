@@ -1,0 +1,97 @@
+﻿<style>
+    #menu-component .jumbotron {
+        padding: 0 0 0 0;
+        margin-bottom: 0;
+        background-color: #505662;
+    }
+
+    #menu-component .nav-tabs {
+        border-bottom: none
+    }
+
+    #menu-component .nav > li > a {
+        font-family: sans-serif;
+        color: #e8e8e8;
+        position: relative;
+        display: block;
+        border-top: #505662 2px solid;
+    }
+
+    #menu-component .nav-pills > li > a:focus, #menu-component .nav-pills > li > a:hover {
+        color: #e8e8e8;
+        background: #505662;
+        border-top: #e8e8e8 2px solid;
+        /*border-bottom: #e8e8e8 2px solid;*/
+    }
+
+    #menu-component .nav-pills > li.active > a, #menu-component .nav-pills > li.active > a:focus, #menu-component .nav-pills > li.active > a:hover {
+        color: #505662;
+        background: #f7f7f7;
+        border-top: #e8e8e8 2px solid;
+        /*border-bottom: #e8e8e8 2px solid;*/
+    }
+
+    @media only screen and (min-width: 321px) {
+        #menu-component .nav > li {
+            margin: 20px 0 0 0
+        }
+
+        #menu-component .nav > li > a {
+            font-size: 12px;
+            padding: 6px 10px 7px 10px;
+            margin: 0 0 0 0;
+        }
+    }
+
+    @media only screen and (min-width: 500px) and (max-width: 1200px) {
+        #menu-component .nav > li {
+            margin: 20px 16px 0 0
+        }
+
+        #menu-component .nav > li > a {
+            font-size: 14px;
+            padding: 6px 10px 7px 10px;
+            margin: 0 0 0 0;
+        }
+    }
+
+    @media only screen and (max-width: 1200px) and (min-width: 992px) {
+        #menu-component .nav > li {
+            margin: 20px 16px 0 0
+        }
+
+        #menu-component .nav > li > a {
+            font-size: 18px;
+            padding: 6px 10px 7px 10px;
+            margin: 0 0 0 0;
+        }
+    }
+
+    @media only screen and (min-width: 1201px) {
+        #menu-component .nav > li {
+            margin: 20px 16px 0 0
+        }
+
+        #menu-component .nav > li > a {
+            font-size: 18px;
+            padding: 6px 10px 7px 10px;
+            margin: 0 0 0 0;
+        }
+    }
+
+</style>
+
+<!-- Menu -->
+<div id="menu-component">
+    <div class="jumbotron">
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li role="menu" data-route="track-list" class=""><a href="#">Trilhas</a></li>
+                <li role="menu" data-route="courses-list-table" class=""><a href="#">Todos</a></li>
+                <li role="menu" data-route="finished-list" class=""><a href="#">Realizados</a></li>
+                <li role="menu" data-route="catalog-list" class=""><a href="#">Catálogo</a></li>
+                <li role="menu" data-route="courses-free-list" class=""><a href="#">Avulsos</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

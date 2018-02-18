@@ -1,0 +1,46 @@
+﻿<div class="profile">
+    <div class="profile-body">
+        <div class="container">
+            <div data-target="render">
+
+                <script id="item-template" type="text/template">
+                    <table class="table table-striped" id="{{tableID}}">
+                        <thead>
+                            <tr>
+                                <th>Curso</th>
+                                <th>Status</th>
+                                <th>Nota</th>
+                                <th>Data</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each courses}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td>{{status}}</td>
+                                <td>{{score}}</td>
+                                <td>{{date}}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn-u dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            Ações
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            {{#buttons}}
+                                            <li><a href="#" data-type="{{type}}" data-id="{{id}}"><i class="fa {{class}}"></i> {{name}}</a></li>
+                                            {{/buttons}}
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div>

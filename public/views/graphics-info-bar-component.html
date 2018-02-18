@@ -1,0 +1,119 @@
+﻿<style>
+    #charts-component .profile-body {
+        margin: 0
+    }
+
+    #charts-component h3, #charts-component h3 small {
+        color: #969696;
+    }
+    #charts-component .fa-flag-checkered, .fa-trophy {
+        color: #969696;
+    }
+
+    @media only screen and (min-width: 321px) {
+        #charts-component .fa-flag-checkered, .fa-trophy {
+            display: none
+        }
+
+        #charts-component h3, #charts-component h3 small {
+            font-size: 12px;
+        }
+
+        #charts-component h3 small {
+            margin: 6px 0 0 0;
+        }
+    }
+
+    @media only screen and (min-width: 500px) and (max-width: 768px) {
+        #charts-component .fa-flag-checkered, .fa-trophy {
+            display: none
+        }
+
+        #charts-component h3, #charts-component h3 small {
+            font-size: 12px;
+            margin: 0
+        }
+    }
+
+
+    @media only screen and (min-width: 769px) and (max-width: 991px) {
+        #charts-component h3, #charts-component h3 small {
+            font-size: 15px;
+        }
+
+        #charts-component .fa-flag-checkered, .fa-trophy {
+            font-size: 40px;
+            margin: 24px 0 0 0;
+            display: block
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1200px) {
+        #charts-component h3 small {
+            margin: 6px 0 0 0;
+        }
+
+        #charts-component h3, #charts-component h3 small {
+            font-size: 22px;
+        }
+
+        #charts-component .fa-flag-checkered, .fa-trophy {
+            font-size: 60px;
+            margin: 6px 0 0 0;
+            display: block
+        }
+    }
+
+    @media (min-width: 1201px) {
+        #charts-component h3 small {
+            margin: 6px 0 0 0;
+        }
+
+        #charts-component h3, #charts-component h3 small {
+            font-size: 22px;
+        }
+
+        #charts-component .fa-flag-checkered, .fa-trophy {
+            font-size: 60px;
+            margin: 6px 0 0 0;
+            display: block
+        }
+    }
+
+    
+</style>
+
+<!-- Charts -->
+<div id="charts-component">
+    <div class="profile">
+        <div class="profile-body">
+            <div class="container">
+                <div data-target="render">
+
+                    <script id="item-template" type="text/template">
+                        <div class="row">
+                            <div class="col-md-1 col-sm-1 col-xs-1"><i class="fa fa-flag-checkered"></i></div>
+                            <div class="col-md-10 col-sm-10 col-xs-12">
+                                <h3 data-model="title">
+                                    Você completou {{from}} {{title}} de um total de {{to}}
+                                    <small data-model="percent" class="pull-right">{{percent}}%</small>
+                                </h3>
+                                <div class="progress progress-u progress-u rounded-2x">
+                                    <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="{{percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percent}}%">
+                                        <span class="sr-only">{{percent}}% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-1 col-xs-1"><i class="fa fa-trophy"></i></div>
+                        </div>
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

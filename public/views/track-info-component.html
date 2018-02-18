@@ -1,0 +1,73 @@
+﻿<style>
+    #header-component .jumbotron {
+        padding: 30px 0 0 0;
+        margin-bottom: 0;
+        background-color: #505662
+    }
+
+    #header-component .jumbotron .page-header {
+        padding: 0 0 0 0;
+        margin: 0 0 -30px 0;
+        border-bottom: none
+    }
+
+    #header-component .jumbotron .page-header h1 {
+        font-size: 26px;
+        color: #ffffff
+    }
+
+    h2.title-v2 {
+        color: #fff;
+    }
+
+    h2.title-v2:after {
+        background: #fff;
+    }
+
+    div.descriptions {
+        min-height: 270px;
+        max-height: 270px;
+        overflow-y: auto;
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 15px;
+        text-align: justify;
+        padding: 0 20px 0 0;
+    }
+
+    iframe.video-description {
+        width: 100%;
+        min-height: 310px;
+        height: auto;
+        margin: 15px 0 0 0;
+    }
+</style>
+
+
+<div id="header-component">
+    <div class="jumbotron">
+        <div class="container">
+            <div data-target="render">
+                
+                <script id="item-template" type="text/template">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{#if image}}
+                                <img class="img-responsive image-description" src="{{image}}" alt="">
+                            {{/if}}
+                            
+                            {{#if video}}
+                                <iframe class="video-description" src="{{video}}" frameborder="0" allowfullscreen></iframe>
+                            {{/if}}
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="title-v2">{{title}}</h2>
+                            <div class="descriptions">{{description}}</div> 
+                        </div>
+                    </div>
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+{
+    "presets": [
+        "env"
+    ],
+    "minified": true,
+    "sourceMap": true,
+    "sourceType": "module",
+    "plugins": [
+        "transform-object-rest-spread",
+        "transform-async-to-generator",
+        "transform-regenerator"
+    ]
+}
