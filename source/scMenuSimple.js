@@ -1,5 +1,5 @@
-import {getData} from '../helpers/async'
-import {getState, setState} from '../helpers/stateRoute'
+import { getData } from '../../Helpers/modules/async'
+import { getState, setState } from '../../Helpers/modules/stateRoute'
 
 export default (sysParam) => {
   const init = (data) => {
@@ -14,7 +14,7 @@ export default (sysParam) => {
       $(el.currentTarget).addClass('active')
       const route = $(el.currentTarget).attr('data-route')
       const options = ''
-      setState({stateName: `${route}${options}`})
+      setState({ stateName: `${route}${options}` })
     })
   }
 
@@ -28,7 +28,7 @@ export default (sysParam) => {
     const urlProd = `${sysParam.urlRaiz}/modules/public/views/studentCentral/menu-simple-component.html`
     getData(urlProd)
       .then(view => {
-        const {renderTo} = sysParam
+        const { renderTo } = sysParam
         $(`#${renderTo}, .${renderTo}`).html(view)
         setMenuActive()
       })

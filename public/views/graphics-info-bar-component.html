@@ -10,6 +10,10 @@
         color: #969696;
     }
 
+    #charts-component .profile-body {
+        padding-bottom: 0px
+    }
+
     @media only screen and (min-width: 321px) {
         #charts-component .fa-flag-checkered, .fa-trophy {
             display: none
@@ -21,6 +25,14 @@
 
         #charts-component h3 small {
             margin: 6px 0 0 0;
+        }
+    }
+
+    @media only screen and (min-width: 321px) and (max-width: 768px) {
+        #charts-component .container,
+        #charts-component .col-md-10 {
+            padding-left: 5px;
+            padding-right: 5px
         }
     }
 
@@ -91,21 +103,27 @@
                 <div data-target="render">
 
                     <script id="item-template" type="text/template">
+                        
                         <div class="row">
                             <div class="col-md-1 col-sm-1 col-xs-1"><i class="fa fa-flag-checkered"></i></div>
                             <div class="col-md-10 col-sm-10 col-xs-12">
                                 <h3 data-model="title">
-                                    Você completou {{from}} {{title}} de um total de {{to}}
-                                    <small data-model="percent" class="pull-right">{{percent}}%</small>
+                                    {{#if full_description}}
+                                        Você completou {{concluidos}} {{title}} de um total de {{total}}
+                                    {{else}}
+                                        Meu progresso
+                                    {{/if}}
+                                    <small data-model="percent" class="pull-right">{{progresso}}%</small>
                                 </h3>
                                 <div class="progress progress-u progress-u rounded-2x">
-                                    <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="{{percent}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percent}}%">
-                                        <span class="sr-only">{{percent}}% Complete</span>
+                                    <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="{{progresso}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progresso}}%">
+                                        <span class="sr-only">{{progresso}}% Complete</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-1 col-sm-1 col-xs-1"><i class="fa fa-trophy"></i></div>
                         </div>
+
                     </script>
 
                 </div>

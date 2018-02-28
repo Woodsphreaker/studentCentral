@@ -1,5 +1,5 @@
-import {getData} from '../helpers/stateRoute'
-import random from '../helpers/randomNumber'
+import { getData } from '../../Helpers/modules/async'
+import random from '../../Helpers/modules/randomNumber'
 import handlebars from 'handlebars'
 
 export default (sysParam) => {
@@ -8,13 +8,13 @@ export default (sysParam) => {
     addActionsToObjects()
   }
 
-  const addActionsToObjects = () => {}
+  const addActionsToObjects = () => { }
 
   const renderView = () => {
     const urlProd = `${sysParam.urlRaiz}/modules/public/views/studentCentral/courses-list-table-component.html`
     getData(urlProd)
       .then(view => {
-        const {renderTo} = sysParam
+        const { renderTo } = sysParam
         const template = $('#item-template', view).html()
         $(`#${renderTo}, .${renderTo}`).html(view)
         viewContents(template)
@@ -23,21 +23,22 @@ export default (sysParam) => {
   }
 
   const viewContents = template => {
-    const {renderTo} = sysParam
+    const { renderTo } = sysParam
     const source = [...Array(50).keys()]
       .reduce((acc, el, i) => acc.concat(
-        { name: `course ${i + 1}`,
+        {
+          name: `course ${i + 1}`,
           status: 'completed',
           score: random(0, 10),
           date: new Date().toLocaleDateString(),
           buttons: [
-            {type: 'edit', id: 10, class: 'fa-pencil', name: 'Editar'},
-            {type: 'delete', id: 10, class: 'fa-trash', name: 'Deletar'}
+            { type: 'edit', id: 10, class: 'fa-pencil', name: 'Editar' },
+            { type: 'delete', id: 10, class: 'fa-trash', name: 'Deletar' }
           ]
         }), [])
 
     const tableID = random(0, 10000)
-    const view = handlebars.compile(template)({tableID: tableID, courses: source})
+    const view = handlebars.compile(template)({ tableID: tableID, courses: source })
     $(`#${renderTo}, .${renderTo}`).find('[data-target="render"]').html(view)
 
     appDataTables.montaTabela({

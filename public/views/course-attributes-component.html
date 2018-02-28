@@ -1,0 +1,203 @@
+﻿<style type="text/css">
+    #attribute-component .container {
+        /*background: #ffffff*/
+    }
+
+    #attribute-component .tab-pane {
+        background: #fff;
+        padding: 20px;
+    }
+
+    #attribute-component .accordion-toggle span {
+        /*display: block;*/
+        margin: -50px 0 0 0;
+        font-size: 20px;
+        font-family: arial;
+    }
+
+    #attribute-component .accordion-toggle small {
+        font-size: 12px;
+    }
+
+    #attribute-component .tab-v2 .nav-tabs li a {
+        line-height: 40px;
+        font-size: 13px;
+    }
+
+    #attribute-component .tab-v2 .nav-tabs li i.fa {
+        font-size: 32px;
+        display: block;
+        margin: 7px 0 -5px 0;
+        text-align: center;
+        width: 100%;
+        color: #b9b9b9;
+    }
+
+    #attribute-component .panel-default {
+        margin-top: 10px
+    }
+
+    #attribute-component tr td strong {
+        line-height: 31px;
+    }
+
+    #attribute-component tr td:not(:nth-child(2)) {
+        text-align: center
+    }
+
+    #attribute-component .serviceIcon {
+        font-size: 20px;
+        min-width: 30px;
+        margin-left: 10px
+    }
+
+    #attribute-component .serviceIcon.green {
+        color: #090;
+    }
+
+    #attribute-component #course_resources_list td {
+        color: #777;
+        text-transform: uppercase
+    }
+
+
+    #attribute-component #course_resources_list .flag {
+        font-size: 30px; 
+    }
+
+    #attribute-component #course_resources_list .openReader {
+        cursor: pointer;
+        text-decoration: none
+    }
+
+    @media only screen and (min-width: 321px) and (max-width: 768px) {
+        #attribute-component .container {
+            padding: 15px 0 0 0
+        }
+
+        #attribute-component .profile-body {
+            padding: 5px 5px;
+            /*background-color: #505662*/
+        }
+
+        #attribute-component .tab-v2 .nav-tabs li a {
+            line-height: 30px;
+            font-size: 10px;
+        } 
+    }
+</style>
+
+<div id="attribute-component">
+    <div class="profile">
+        <div class="profile-body">
+            <div class="container">
+                <div data-target="render">
+
+                    <script id="item-template" type="text/template">
+                        <div class="tab-v2">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#course_desc" data-toggle="tab">
+                                        <i class="fa fa-info"></i>
+                                        <strong> Conteúdo </strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#course_requirements" data-toggle="tab">
+                                        <i class="fa fa-check-square-o"></i>
+                                        <strong> Pré requisitos </strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#course_sessions" data-toggle="tab">
+                                        <i class="fa fa-list-ul"></i>
+                                        <strong> Módulos </strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#course_resources" data-toggle="tab">
+                                        <i class="fa fa-files-o"></i>
+                                        <strong> Materiais </strong>
+                                    </a>
+                                </li>
+                                <!--<li>
+                                    <a href="#course_comments" data-type="course_comments" data-toggle="tab">
+                                        <i class="fa fa-comments-o"></i>
+                                        <strong> Comentários </strong>
+                                    </a>
+                                </li>-->
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="course_desc">{{{description}}}</div>
+                                <div class="tab-pane fade in" id="course_requirements">{{{requirements}}}</div>
+                                <div class="tab-pane fade in" id="course_sessions">
+                                    <div class="panel-group acc-v1" id="accordion-1">
+                                        {{#if sessions}}
+                                        {{#each sessions}}
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-{{@index}}" href="#collapse-{{@index}}" aria-expanded="true" style="text-decoration:none">
+                                                        <small> </small>
+                                                        <span>{{module}}</span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse-{{@index}}" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-8">
+                                                            <ul class="list-unstyled">
+                                                                {{#each sessions}}
+                                                                <li style="padding:10px"><i class="{{iconByType}} color-default serviceIcon"></i> {{session}} {{#if accessed}}<i class="fa fa-check serviceIcon green"></i>{{/if}}</li>
+                                                                {{/each}}
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4 line-icon-page">
+                                                            <span aria-hidden="true" class="icon-graduation" style="font-size: 92px; color: #5cb8a6; float: right;"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/each}}
+                                        {{else}}
+                                            no sessions
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade in" id="course_resources">
+                                    <p></p>
+                                    <table class="table table-bordered table-striped" id="course_resources_list">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align:center; width:3%">#</th>
+                                                <th class="col-md-8">ARQUIVO</th>
+                                                <th class="col-md-1" style="text-align:center">TIPO</th>
+                                                <th class="col-md-1" style="text-align:center">TAMANHO</th>
+                                                <th class="col-md-2" style="text-align:center">DATA</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each resources}}
+                                            <tr>
+                                                <td class="flag"><i class="{{flag}}"></i></td>
+                                                <td class="col-md-8"><strong><a class="openReader" data-filename="{{name}}" data-path="{{path}}" data-type="{{type}}">{{name}}</a></strong></td>
+                                                <td class="col-md-1"><strong>{{type}}</strong></td>
+                                                <td class="col-md-1"><strong>{{size}}</strong></td>
+                                                <td class="col-md-2"><strong>{{date}}</strong></td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

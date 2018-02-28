@@ -1,63 +1,46 @@
-import menuSimple from './scMenuSimple'
-import graphicsInfoBar from './scGraphicsInfoBar'
-import tracksList from './scTracksList'
-import trackInfo from './scTrackInfo'
-import sysParam from './scSysParam'
-import headerInfo from './scHeaderInfo'
+// Local Components
+import catalogList from './scCatalogList'
+import courseAttributes from './scCourseAttributes'
+import comments from './scComments'
 import coursesList from './scCoursesList'
 import coursesListTable from './scCourseListTable'
-import catalogList from './scCatalogList'
+import courseInfo from './scCourseInfo'
 import error from './sc404'
-import routes from './scRoutes'
+import headerInfoSimple from './scHeaderInfoSimple'
+import hbsHelpers from './handlebarsHelpers'
+import graphicsInfoBar from './scGraphicsInfoBar'
+import menuSimple from './scMenuSimple'
+import tracksList from './scTracksList'
+import trackInfo from './scTrackInfo'
+import defaultSysParam from '../../Helpers/modules/defaultSysParam'
+import search from './scSearch'
 
-const centralStudentAPI = () => {
+// routes
+import routes from '../../Helpers/modules/routes'
+import routesConfig from './scRoutesConfig'
+
+const centralStudentAPI = (sysParam = {}) => {
   const init = data => {
-    Object.assign(sysParam, data)
+    Object.assign(sysParam, defaultSysParam(), data)
     configModules()
+    hbsHelpers()
   }
 
   const configModules = () => {
     const listModules = [
-      {moduleInstace: headerInfo, el: 'headerInfo', name: 'headerInfo'},
-      {moduleInstace: menuSimple, el: 'menuSimple', name: 'menuSimple'},
-      {moduleInstace: graphicsInfoBar, el: 'graphicsInfoBar', name: 'graphicsInfoBar'},
-      {moduleInstace: tracksList, el: 'main', name: 'tracksList'},
-      {moduleInstace: trackInfo, el: 'trackInfo', name: 'trackInfo'},
+      {moduleInstace: catalogList, el: 'main', name: 'catalogList'},
+      {moduleInstace: comments, el: 'comments', name: 'comments'},
+      {moduleInstace: courseAttributes, el: 'main', name: 'courseAttributes'},
+      {moduleInstace: courseInfo, el: 'courseInfo', name: 'courseInfo'},
       {moduleInstace: coursesList, el: 'main', name: 'coursesList'},
       {moduleInstace: coursesListTable, el: 'main', name: 'coursesListTable'},
-      {moduleInstace: catalogList, el: 'main', name: 'catalogList'},
-      {moduleInstace: error, el: 'main', name: 'error'}
-    ]
-
-    const routeConfig = [
-      {
-        route: ['/', 'track-list'],
-        loadModules: ['headerInfo', 'menuSimple', 'graphicsInfoBar', 'tracksList']
-      },
-      {
-        route: ['track-info'],
-        loadModules: ['trackInfo', 'menuSimple', 'graphicsInfoBar', 'coursesList']
-      },
-      {
-        route: ['courses-list-table'],
-        loadModules: ['headerInfo', 'menuSimple', 'coursesListTable']
-      },
-      {
-        route: ['courses-free-list'],
-        loadModules: ['headerInfo', 'menuSimple', 'graphicsInfoBar', 'coursesList']
-      },
-      {
-        route: ['finished-list'],
-        loadModules: ['headerInfo', 'menuSimple']
-      },
-      {
-        route: ['catalog-list'],
-        loadModules: ['headerInfo', 'menuSimple', 'catalogList']
-      },
-      {
-        route: ['404'],
-        loadModules: ['error']
-      }
+      {moduleInstace: error, el: 'main', name: 'error'},
+      {moduleInstace: graphicsInfoBar, el: 'graphicsInfoBar', name: 'graphicsInfoBar'},
+      {moduleInstace: headerInfoSimple, el: 'headerInfoSimple', name: 'headerInfoSimple'},
+      {moduleInstace: menuSimple, el: 'menuSimple', name: 'menuSimple'},
+      {moduleInstace: search, el: 'search', name: 'search'},
+      {moduleInstace: tracksList, el: 'main', name: 'tracksList'},
+      {moduleInstace: trackInfo, el: 'trackInfo', name: 'trackInfo'}
     ]
 
     const modulesToLoad = listModules
@@ -74,7 +57,7 @@ const centralStudentAPI = () => {
     modulesToLoad
       .forEach(m => m.init(modulesMethods))
 
-    routes(routeConfig, listModules, modulesMethods, sysParam).init()
+    routes(routesConfig, listModules, modulesMethods, sysParam).init()
   }
 
   return {

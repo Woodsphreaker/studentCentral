@@ -31,4 +31,10 @@ const getStateOptions = () => {
   return state.slice((bar - 1 >>> 0) + 1)
 }
 
-export {setState, replaceState, getState, getStateOptions}
+const getOption = (option = '', pos = 0) => {
+  return option
+    .split('/')
+    .filter(el => el)
+}
+
+export {setState, replaceState, getState, getStateOptions, getOption}

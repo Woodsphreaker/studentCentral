@@ -1,0 +1,37 @@
+﻿<style>
+    #search-component h2 {
+        font-size: 18px;
+        font-weight: 200;
+        text-align: center;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        font-family: "Open Sans", Arial, sans-serif;
+        color: #969696;
+        margin-top: -35px;
+    }
+</style>
+
+
+<div id="search-component">
+    <div class="profile">
+        <div class="profile-body">
+            <div class="container">
+                <div data-target="render">
+
+                    <script id="item-template" type="text/template">
+                            <div class="col-md-6 col-md-offset-3">
+                                <h2>{{title}}</h2>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="{{placeholder}}">
+                                    <span class="input-group-btn">
+                                        <button class="btn-u" type="button"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

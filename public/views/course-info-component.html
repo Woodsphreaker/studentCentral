@@ -1,0 +1,140 @@
+﻿<style>
+    #header-component .jumbotron {
+        padding: 30px 0 0 0;
+        margin-bottom: 0;
+        background-color: #505662
+    }
+
+    #header-component .jumbotron .page-header {
+        padding: 0 0 0 0;
+        margin: 0 0 -30px 0;
+        border-bottom: none
+    }
+
+    #header-component .jumbotron .page-header h1 {
+        font-size: 26px;
+        color: #ffffff
+    }
+
+    #header-component h2.title-v2 {
+        color: #fff;
+    }
+
+    #header-component h2.title-v2:after {
+        background: #fff;
+    }
+
+    #header-component div.descriptions {
+        min-height: 170px;
+        max-height: 170px;
+        overflow-y: auto;
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 15px;
+        text-align: justify;
+        padding: 0 0 0 0;
+    }
+
+    #header-component iframe.video-description {
+        width: 100%;
+        min-height: 310px;
+        height: auto;
+        margin: 15px 0 0 0;
+    }
+
+    #header-component hr {
+        border-top: 1px solid #acaeb2;
+        width: 99%;
+        margin: 19px 0;
+    }
+
+    #header-component .estatistics ul {
+        float: right;
+        margin: 10px 0 1px 0
+    }
+
+    #header-component .estatistics ul li {
+        display: inline-block;
+        list-style: none;
+        padding: 0 2px;
+    }
+
+    #header-component .estatistics ul li a, 
+    #header-component .estatistics ul li {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #header-component .estatistics ul li i {
+        font-size:20px
+    }
+
+    #header-component .estatistics ul li:before {
+        content: '/';
+        font-size: 12px;
+        line-height: 1.4;
+        margin-right: 9px;
+    }
+
+    #header-component .estatistics ul li:first-child:before {
+        content: ' ' !important
+    }
+
+</style>
+
+
+<div id="header-component">
+    <div class="jumbotron">
+        <div class="container">
+            <div data-target="render">
+
+                <script id="item-template" type="text/template">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{#if image}}
+                            <img class="img-responsive image-description" src="{{image}}" alt="">
+                            {{/if}}
+
+                            {{#if video}}
+                            <iframe class="video-description" src="{{video}}" frameborder="0" allowfullscreen></iframe>
+                            {{/if}}
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="title-v2">{{title}}</h2>
+                            <div class="descriptions">{{description}}</div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="course-buttons">
+                                        <a href="#" class="btn-u btn-u-lg rounded" data-type="course-start" data-course-id="{{courseID}}" data-class-id="{{classID}}" data-course-width="{{width}}" data-course-height="{{height}}">
+                                            <i class="fa fa-academy"></i> Continuar curso
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="estatistics">
+                                        <ul data-type="estatistics" class="estatistics-info">
+                                            {{#if views}}
+                                            <li><a href="#" title="visualizações"><i class="fa fa-eye"></i> <span data-type="hits"> 0</span></a></li>
+                                            {{/if}}
+
+                                            {{#if comments}}
+                                            <li><a href="#" data-type="midia-comments" title="comentários"><i class="fa fa-comments"></i><span data-type="midia-comments-number"> 0</span></a></li>
+                                            {{/if}}
+
+                                            {{#if likes}}
+                                            <li><a href="#" data-type="like-action" data-value="1" title="curtir"><i class="fa fa-thumbs-up" data-type="thumbs-up"></i> <span data-type="like"> 0</span></a></li>
+                                            <li><a href="#" data-type="like-action" data-value="0" title="descurtir"><i class="fa fa-thumbs-down" data-type="thumbs-down"></i> <span data-type="dislike"> 0</span></a></li>
+                                            {{/if}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div>

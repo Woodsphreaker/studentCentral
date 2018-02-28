@@ -10,7 +10,7 @@ export default (sysParam) => {
   const addActionsToObjects = () => { }
 
   const renderView = () => {
-    const urlProd = `${sysParam.urlRaiz}/modules/public/views/studentCentral/catalog-list-component.html`
+    const urlProd = `${sysParam.urlRaiz}/modules/public/views/studentCentral/header-info-simple-component.html`
     getData(urlProd)
       .then(view => {
         const { renderTo } = sysParam
@@ -21,14 +21,14 @@ export default (sysParam) => {
       .catch(error => console.log(error))
   }
 
-  const viewContents = (template) => {
+  const viewContents = template => {
     const { renderTo } = sysParam
     const source = {
-      name: 'Catalogo de Cursos'
+      title: 'Central do Aluno'
     }
     const view = handlebars.compile(template)(source)
-    $(`#${renderTo}, .${renderTo}`).find('[data-target="render"]').contents().remove()
-    $(`#${renderTo}, .${renderTo}`).find('[data-target="render"]').html(view)
+    const target = $(`#${renderTo}, .${renderTo}`)
+    target.find('[data-target="render"]').html(view)
   }
 
   return {
